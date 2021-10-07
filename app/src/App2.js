@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 
-import './App.css';
-import { store } from './state';
-import { Characters } from './Characters';
 
+import './App.css';
+import { Characters } from './Characters2';
+import { store } from './state2';
 
 function App() {
   return (

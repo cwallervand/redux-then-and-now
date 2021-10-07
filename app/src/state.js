@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
 import { charactersReducer } from './redux/characters.state';
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   characters: charactersReducer
 });
+
+export const store = createStore(rootReducer);
 

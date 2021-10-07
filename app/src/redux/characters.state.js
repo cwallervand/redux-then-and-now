@@ -4,7 +4,7 @@ export const GET_CHARACTERS_REQUEST = 'GET_CHARACTERS_REQUEST';
 export const GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS';
 export const GET_CHARACTERS_ERROR = 'GET_CHARACTERS_ERROR';
 
-const defaultCharactersState = {
+const initialCharacterState = {
   data: [],
   status: {
     requested: false,
@@ -30,16 +30,14 @@ export const getCharacters =  async (dispatch) => {
   dispatch(getCharactersRequest());
   try {
     const response = await window.fetch('https://swapi.dev/api/people');
-    console.log('RESPONE', response);
     const json = await response.json();
-    console.log('json', json.results)
     dispatch(getCharactersSuccess(json.results))
   } catch {
     dispatch(getCharactersError());
   }
 }
 
-export const charactersReducer = (state = defaultCharactersState, action) => {
+export const charactersReducer = (state = initialCharacterState, action) => {
 
   switch (action.type) {
     case GET_CHARACTERS_REQUEST:
