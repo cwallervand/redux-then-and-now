@@ -10,27 +10,27 @@ const CharactersCompnent = ({
   dispatch
 }) => {
   const characters = charactersState.data;
-return (
-  <>
-    <button type="button" onClick={async () => {
-      console.log('BEFORE DISPATCH');
-      const result = await getCharacters(dispatch);
-      console.log('AFTER DISPATCH', result);
+  return (
+    <>
+      <h1>Star Wars characters</h1>
+      <button type="button" onClick={async () => {
+        console.log('BEFORE DISPATCH');
+        const result = await getCharacters(dispatch);
+        console.log('AFTER DISPATCH', result);
 
-      // console.log('BEFORE DISPATCH');
-      // const result = await dispatch(getCharacters());
-      // console.log('AFTER DISPATCH', result);
-    }}>
-      Get characters
-    </button>
-    <h1>Star Wars characters</h1>
-    <ul>
-      {
-        characters.map(character => <li>{character.name}</li>)
-      }
-    </ul>
-  </>
-)
+        // console.log('BEFORE DISPATCH');
+        // const result = await dispatch(getCharacters());
+        // console.log('AFTER DISPATCH', result);
+      }}>
+        Get characters
+      </button>
+      <ul>
+        {
+          characters.map(character => <li>{character.name}</li>)
+        }
+      </ul>
+    </>
+  )
 };
 
 const mapStateToProps = (state) => ({

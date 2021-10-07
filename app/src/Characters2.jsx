@@ -9,6 +9,7 @@ export const Characters = () => {
   const characters = useSelector(state => state.characters.data);
   return (
     <>
+      <h1>Star Wars characters</h1>
       <button type="button" onClick={async () => {
         console.log('BEFORE DISPATCH');
         const result = await dispatch(getCharacters());
@@ -16,7 +17,6 @@ export const Characters = () => {
       }}>
         Get characters
       </button>
-      <h1>Star Wars characters</h1>
       <ul>
         {
           characters.map(character => <li>{character.name}</li>)

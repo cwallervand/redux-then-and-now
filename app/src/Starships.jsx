@@ -7,10 +7,12 @@ export const Starships = () => {
   const starships = useSelector(state => state.starships.data);
   return (
     <>
+      <h1>Star Wars starships</h1>
       <button type="button" onClick={() => {
         dispatch(getStarships())
-      }}>Get starships</button>
-      <h1>Star Wars starships</h1>
+      }}>
+        Get starships
+      </button>
       <ul>
         {
           starships.map(starship => <li>{starship.name}</li>)
