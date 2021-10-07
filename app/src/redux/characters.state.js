@@ -32,10 +32,26 @@ export const getCharacters =  async (dispatch) => {
     const response = await window.fetch('https://swapi.dev/api/people');
     const json = await response.json();
     dispatch(getCharactersSuccess(json.results))
+    return json.results;
   } catch {
     dispatch(getCharactersError());
   }
 }
+
+// IKKE LOV TIL Å GJØRE DET SLIK UTEN THUNK MIDDLEWARE
+// export const getCharacters = () => {
+//   return async (dispatch) => {
+//     dispatch(getCharactersRequest());
+//     try {
+//       const response = await window.fetch('https://swapi.dev/api/people');
+//       const json = await response.json();
+//       dispatch(getCharactersSuccess(json.results))
+//       return json.results;
+//     } catch {
+//       dispatch(getCharactersError());
+//     }
+//   }
+// }
 
 export const charactersReducer = (state = initialCharacterState, action) => {
 

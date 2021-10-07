@@ -7,12 +7,15 @@ import { getCharacters } from './redux-toolkit/characters.state';
 export const Characters = () => {
   const dispatch = useDispatch();
   const characters = useSelector(state => state.characters.data);
-  console.log('characters', characters)
   return (
     <>
-      <button type="button" onClick={() => {
-        getCharacters(dispatch);
-      }}>Get characters</button>
+      <button type="button" onClick={async () => {
+        console.log('BEFORE DISPATCH');
+        const result = await dispatch(getCharacters());
+        console.log('AFTER DISPATCH', result);
+      }}>
+        Get characters
+      </button>
       <h1>Star Wars characters</h1>
       <ul>
         {

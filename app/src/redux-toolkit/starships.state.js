@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialCharacterState = {
+const initialStarshipsState = {
   data: [],
   status: {
     requested: false,
@@ -9,11 +9,11 @@ const initialCharacterState = {
   }
 };
 
-export const charactersSlice = createSlice({
-  name: 'characters',
-  initialState: initialCharacterState,
+export const starshipsSlice = createSlice({
+  name: 'starships',
+  initialState: initialStarshipsState,
   reducers: {
-    getCharactersRequest: (state) => {
+    getStarshipsRequest: (state) => {
       return ({
         ...state,
         status: {
@@ -22,7 +22,7 @@ export const charactersSlice = createSlice({
         }
       });
     },
-    getCharactersSuccess: (state, action) => {
+    getStarshipsSuccess: (state, action) => {
       return ({
         ...state,
         data: action.payload,
@@ -33,7 +33,7 @@ export const charactersSlice = createSlice({
         }
       });
     },
-    getCharactersError: (state, action) => {
+    getStarshipsError: (state, action) => {
       return ({
         ...state,
         status: {
@@ -47,23 +47,22 @@ export const charactersSlice = createSlice({
 })
 
 const {
-  getCharactersRequest,
-  getCharactersSuccess,
-  getCharactersError,
-} = charactersSlice.actions
+  getStarshipsRequest,
+  getStarshipsSuccess,
+  getStarshipsError,
+} = starshipsSlice.actions;
 
-export const getCharacters = () => {
+export const getStarships = () => {
   return async (dispatch) => {
-    dispatch(getCharactersRequest());
+    dispatch(getStarshipsRequest());
     try {
-      const response = await window.fetch('https://swapi.dev/api/people');
+      const response = await window.fetch('https://swapi.dev/api/starships');
       const json = await response.json();
-      dispatch(getCharactersSuccess(json.results))
-      return json.results;
+      dispatch(getStarshipsSuccess(json.results))
     } catch {
-      dispatch(getCharactersError());
+      dispatch(getStarshipsError());
     }
   }
 }
 
-export default charactersSlice
+export default starshipsSlice;

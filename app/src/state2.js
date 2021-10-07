@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import charactersReducer from './redux-toolkit/characters.state';
-console.log('charactersReducer', charactersReducer)
+
+import charactersSlice from './redux-toolkit/characters.state';
 export const store = configureStore({
   reducer: {
-    characters: charactersReducer,
+    [charactersSlice.name]: charactersSlice.reducer,
   },
 });
