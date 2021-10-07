@@ -1,6 +1,5 @@
 import { Provider } from 'react-redux'
 
-
 import './App.css';
 import { Characters } from './Characters2';
 import { store } from './state2';

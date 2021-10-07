@@ -18,6 +18,7 @@ const CharactersCompnent = ({
         const result = await getCharacters(dispatch);
         console.log('AFTER DISPATCH', result);
 
+        // MÅ BRUKE THUNK MIDDLEWARE FOR Å GJØRE DET SLIK
         // console.log('BEFORE DISPATCH');
         // const result = await dispatch(getCharacters());
         // console.log('AFTER DISPATCH', result);

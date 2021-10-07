@@ -4,15 +4,6 @@ export const GET_CHARACTERS_REQUEST = 'GET_CHARACTERS_REQUEST';
 export const GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS';
 export const GET_CHARACTERS_ERROR = 'GET_CHARACTERS_ERROR';
 
-const initialCharacterState = {
-  data: [],
-  status: {
-    requested: false,
-    success: false,
-    error: false,
-  }
-};
-
 const getCharactersRequest = () => ({
   type: GET_CHARACTERS_REQUEST
 });
@@ -53,8 +44,16 @@ export const getCharacters =  async (dispatch) => {
 //   }
 // }
 
-export const charactersReducer = (state = initialCharacterState, action) => {
+const initialCharacterState = {
+  data: [],
+  status: {
+    requested: false,
+    success: false,
+    error: false,
+  }
+};
 
+export const charactersReducer = (state = initialCharacterState, action) => {
   switch (action.type) {
     case GET_CHARACTERS_REQUEST:
       return ({

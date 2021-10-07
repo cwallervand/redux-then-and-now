@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getCharacters } from './redux-toolkit/characters.state';
 
-
-
 export const Characters = () => {
   const dispatch = useDispatch();
   const characters = useSelector(state => state.characters.data);
