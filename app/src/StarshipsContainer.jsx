@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getStarships } from './redux-toolkit/starships.state';
 
-export const Starships = () => {
+export const StarshipsContainer = () => {
   const dispatch = useDispatch();
   const starships = useSelector(state => state.starships.data);
   return (
@@ -15,7 +15,7 @@ export const Starships = () => {
       </button>
       <ul>
         {
-          starships.map(starship => <li>{starship.name}</li>)
+          starships.map(starship => <li key={starship.uid}>{starship.name}</li>)
         }
       </ul>
     </>

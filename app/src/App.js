@@ -1,20 +1,18 @@
+// https://redux.js.org/tutorials/fundamentals/part-1-overview
 import { Provider } from 'react-redux'
 
 import './App.css';
 import { store } from './state';
-import { Characters } from './Characters';
+import { CharactersContainer } from './CharactersContainer';
 
-
-function App() {
-  return (
-    <div className="App">
-      <main>
-        <Provider store={store}>
-          <Characters />
-        </Provider>
-      </main>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <main>
+      <Provider store={store}>
+        <CharactersContainer />
+      </Provider>
+    </main>
+  </div>
+);
 
 export default App;

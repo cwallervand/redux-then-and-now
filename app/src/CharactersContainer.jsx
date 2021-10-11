@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 import { getCharacters } from './redux/characters.state';
 
-
-
 const CharactersCompnent = ({
   charactersState,
   dispatch
@@ -15,19 +13,18 @@ const CharactersCompnent = ({
       <h1>Star Wars characters</h1>
       <button type="button" onClick={async () => {
         console.log('BEFORE DISPATCH');
+        // Merk hvordan dispatch sendes inn
         const result = await getCharacters(dispatch);
         console.log('AFTER DISPATCH', result);
 
         // MÅ BRUKE THUNK MIDDLEWARE FOR Å GJØRE DET SLIK
-        // console.log('BEFORE DISPATCH');
         // const result = await dispatch(getCharacters());
-        // console.log('AFTER DISPATCH', result);
       }}>
         Get characters
       </button>
       <ul>
         {
-          characters.map(character => <li>{character.name}</li>)
+          characters.map(character => <li key={character.uid}>{character.name}</li>)
         }
       </ul>
     </>
@@ -42,4 +39,5 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch
 });
 
-export const Characters = connect(mapStateToProps, mapDispatchToProps)(CharactersCompnent);
+// Connect() lar oss få tilgang til state og dispach i en komponent hvor som helst i komponent-hierarkiet
+export const CharactersContainer = connect(mapStateToProps, mapDispatchToProps)(CharactersCompnent);

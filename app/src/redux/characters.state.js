@@ -20,9 +20,10 @@ const getCharactersError = () => ({
 export const getCharacters =  async (dispatch) => {
   dispatch(getCharactersRequest());
   try {
-    const response = await window.fetch('https://swapi.dev/api/people');
+    const response = await window.fetch('https://www.swapi.tech/api/people');
     const json = await response.json();
     dispatch(getCharactersSuccess(json.results))
+    // Det kan være ganske nyttig å returnere fra slike funksjoner
     return json.results;
   } catch {
     dispatch(getCharactersError());
@@ -44,7 +45,7 @@ export const getCharacters =  async (dispatch) => {
 //   }
 // }
 
-const initialCharacterState = {
+const initialCharactersState = {
   data: [],
   status: {
     requested: false,
@@ -53,7 +54,7 @@ const initialCharacterState = {
   }
 };
 
-export const charactersReducer = (state = initialCharacterState, action) => {
+export const charactersReducer = (state = initialCharactersState, action) => {
   switch (action.type) {
     case GET_CHARACTERS_REQUEST:
       return ({

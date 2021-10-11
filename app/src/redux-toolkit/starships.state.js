@@ -56,7 +56,7 @@ export const getStarships = () => {
   return async (dispatch) => {
     dispatch(getStarshipsRequest());
     try {
-      const response = await window.fetch('https://swapi.dev/api/starships');
+      const response = await window.fetch('https://www.swapi.tech/api/starships');
       const json = await response.json();
       dispatch(getStarshipsSuccess(json.results))
     } catch {
