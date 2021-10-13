@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // Ordet slice er et nytt begrep
 import charactersSlice from './redux-toolkit/characters.state';
+
 export const store = configureStore({
   reducer: {
     [charactersSlice.name]: charactersSlice.reducer,

@@ -1,3 +1,4 @@
+// Importerer ikke connect
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getCharacters } from './redux-toolkit/characters.state';

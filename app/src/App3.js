@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 
 import './App.css';
+// Importerer her CharactersContainer fra eksempel 1
 import { CharactersContainer } from './CharactersContainer';
 import { StarshipsContainer } from './StarshipsContainer';
 import { store } from './state3';
